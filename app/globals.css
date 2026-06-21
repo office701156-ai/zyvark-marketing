@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Design tokens ─────────────────────────────────────────────
+   Colors are RGB triplets so Tailwind's <alpha-value> works.
+   Dark is the primary theme; `.light` overrides it.            */
+:root,
+.dark {
+  --bg: 7 8 18;
+  --fg: 237 238 245;
+  --card: 16 18 30;
+  --muted: 22 24 38;
+  --muted-fg: 150 154 174;
+  --border: 38 41 58;
+  --accent: 139 92 246; /* violet */
+  --accent-2: 34 211 238; /* cyan  */
+}
+
+.light {
+  --bg: 250 250 252;
+  --fg: 17 18 30;
+  --card: 255 255 255;
+  --muted: 244 245 249;
+  --muted-fg: 90 95 115;
+  --border: 226 228 236;
+  --accent: 124 58 237;
+  --accent-2: 8 145 178;
+}
+
+* {
+  border-color: rgb(var(--border));
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: rgb(var(--bg));
+  color: rgb(var(--fg));
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background-color: rgb(var(--accent) / 0.35);
+}
+
+/* Accessible focus ring */
+:where(a, button, input, textarea, select):focus-visible {
+  outline: 2px solid rgb(var(--accent));
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@layer utilities {
+  .gradient-text {
+    background-image: linear-gradient(
+      100deg,
+      rgb(var(--accent)),
+      rgb(var(--accent-2))
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .gradient-bg {
+    background-image: linear-gradient(
+      100deg,
+      rgb(var(--accent)),
+      rgb(var(--accent-2))
+    );
+  }
+
+  .glass {
+    background-color: rgb(var(--card) / 0.6);
+    backdrop-filter: blur(12px);
+  }
+
+  .border-glow {
+    box-shadow:
+      0 0 0 1px rgb(var(--border)),
+      0 18px 40px -20px rgb(var(--accent) / 0.45);
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
