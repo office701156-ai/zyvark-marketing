@@ -3,7 +3,7 @@ import { products } from "@/lib/products";
 import { site } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = ["", "/products", "/pricing", "/about", "/contact", "/privacy", "/terms"];
+  const routes = ["", "/products", "/pricing", "/about", "/security", "/contact", "/signup", "/privacy", "/terms"];
   const now = new Date();
 
   const staticRoutes = routes.map((path) => ({
