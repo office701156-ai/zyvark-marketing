@@ -59,6 +59,16 @@ export default function ProductPage({
     ],
   };
 
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: product.faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+
   return (
     <>
       <script
@@ -68,6 +78,10 @@ export default function ProductPage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       <section className="relative overflow-hidden border-b border-border">
         <div
@@ -140,6 +154,30 @@ export default function ProductPage({
         </Container>
       </section>
 
+      <div className="border-b border-border bg-muted/20">
+        <Container className="grid gap-8 py-10 sm:grid-cols-3">
+          {product.stats.map((s) => (
+            <div key={s.label} className="text-center">
+              <div className="font-display text-3xl font-bold text-accent">
+                {s.value}
+              </div>
+              <div className="mt-1 text-sm text-muted-foreground">{s.label}</div>
+            </div>
+          ))}
+        </Container>
+      </div>
+
+      <Section className="pb-0">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-accent">
+            Overview
+          </p>
+          <p className="text-lg leading-relaxed text-muted-foreground">
+            {product.overview}
+          </p>
+        </div>
+      </Section>
+
       <Section>
         <SectionHeading
           eyebrow="Capabilities"
@@ -157,6 +195,60 @@ export default function ProductPage({
           ))}
         </div>
 
+      </Section>
+
+      <Section className="bg-muted/20">
+        <SectionHeading eyebrow="How it works" title={`Getting started with ${product.name}`} />
+        <div className="mt-14 grid gap-6 md:grid-cols-3">
+          {product.howItWorks.map((step, i) => (
+            <div key={step.title} className="rounded-2xl border border-border bg-card p-6">
+              <div className={`inline-flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br ${product.accent} font-display text-sm font-bold text-white`}>
+                {i + 1}
+              </div>
+              <h3 className="mt-4 font-display text-lg font-semibold">{step.title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">{step.body}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section>
+        <div className="grid gap-12 lg:grid-cols-2">
+          <div>
+            <SectionHeading align="left" eyebrow="Who it's for" title={`Built for the way you work`} />
+            <ul className="mt-8 space-y-3">
+              {product.audience.map((a) => (
+                <li key={a} className="flex gap-3 text-muted-foreground">
+                  <Check className="mt-1 h-4 w-4 flex-none text-accent" />
+                  <span>{a}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <SectionHeading align="left" eyebrow="Use cases" title="What people do with it" />
+            <div className="mt-8 space-y-4">
+              {product.useCases.map((u) => (
+                <div key={u.title} className="rounded-2xl border border-border bg-card p-5">
+                  <h3 className="font-display font-semibold">{u.title}</h3>
+                  <p className="mt-1.5 text-sm text-muted-foreground">{u.body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      <Section className="bg-muted/20">
+        <SectionHeading eyebrow="FAQ" title="Questions, answered" />
+        <div className="mx-auto mt-12 max-w-3xl space-y-4">
+          {product.faqs.map((f) => (
+            <div key={f.q} className="rounded-2xl border border-border bg-card p-6">
+              <h3 className="font-display font-semibold">{f.q}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">{f.a}</p>
+            </div>
+          ))}
+        </div>
         <div className="mt-12 text-center">
           <Link
             href="/products"
