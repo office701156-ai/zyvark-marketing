@@ -20,19 +20,19 @@ export function Hero() {
         <div className="flex justify-center">
           <Badge>
             <Sparkles className="h-3.5 w-3.5 text-accent" />
-            AI-native fintech, all in one place
+            Built for Indian SMBs &amp; founders
           </Badge>
         </div>
 
         <h1 className="mx-auto mt-6 max-w-4xl font-display text-4xl font-bold leading-[1.05] tracking-tight sm:text-6xl">
-          Institutional-grade fintech,{" "}
-          <span className="gradient-text">built for everyone.</span>
+          Every money job for your business,{" "}
+          <span className="gradient-text">under one brand.</span>
         </h1>
 
         <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
-          Zyvark Solutions brings AI analytics, escrow-protected trading, and
-          automated books together under one trusted brand — so you can move
-          faster with less risk.
+          Reconciled books, GST and crypto tax, market analytics, and uptime
+          monitoring — Zyvark gives founders and small businesses one trusted
+          toolkit, so compliance and growth stop living in ten different tabs.
         </p>
 
         <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -45,8 +45,8 @@ export function Hero() {
         </div>
 
         <p className="mt-5 text-sm text-muted-foreground">
-          Free to start · No credit card required · {/* TODO */}10,000+ users
-          onboard each month
+          Free to start · No credit card required · One login for every Zyvark
+          product
         </p>
 
         <HeroMock />
@@ -68,11 +68,11 @@ function HeroMock() {
           </span>
         </div>
         <div className="grid grid-cols-3 gap-4 p-6">
-          {["Portfolio", "AI Signals", "Escrow"].map((label, i) => (
+          {["Books", "GST", "Uptime"].map((label, i) => (
             <div key={label} className="rounded-xl border border-border bg-muted/50 p-4">
               <p className="text-xs text-muted-foreground">{label}</p>
               <p className="mt-2 font-display text-2xl font-bold">
-                {["$2.4M", "Bullish", "100%"][i]}
+                {["Reconciled", "Ready", "99.9%"][i]}
               </p>
               <div className="mt-4 flex h-16 items-end gap-1">
                 {Array.from({ length: 9 }).map((_, j) => (

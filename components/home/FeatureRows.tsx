@@ -5,12 +5,20 @@ import { Reveal } from "@/components/Reveal";
 
 const rows = [
   {
+    eyebrow: "Zyvark Ledger",
+    title: "Reconciled books and GST-ready filings, automatically",
+    body: "Import statements in any format, auto-categorize every transaction, and generate GST- and ITR-ready summaries — with VDA logic built in for crypto.",
+    bullets: ["Any-format statement import", "GST, VDA & advance-tax logic", "Filing-ready summaries"],
+    href: "/products/ledger",
+    reverse: false,
+  },
+  {
     eyebrow: "ZyMetrics",
     title: "Know what the market is doing — and what to do about it",
     body: "AI-scored signals, multi-timeframe charts, and screeners turn raw market noise into a clear next move.",
     bullets: ["Plain-language AI signals", "RSI / MACD / volume screeners", "Sector & DeFi heatmaps"],
     href: "/products/zymetrics",
-    reverse: false,
+    reverse: true,
   },
   {
     eyebrow: "Zyvark Exchange",
@@ -18,7 +26,7 @@ const rows = [
     body: "Smart escrow locks funds until both sides confirm, with transparent reputation and fast dispute resolution.",
     bullets: ["Smart-contract escrow", "Counterparty reputation", "Evidence-based disputes"],
     href: "/products/exchange",
-    reverse: true,
+    reverse: false,
   },
 ];
 

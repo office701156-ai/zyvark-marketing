@@ -9,13 +9,13 @@ const steps = [
   },
   {
     n: "02",
-    title: "Connect your data",
-    body: "Link an exchange, import a statement, or add a service. Everything syncs into one place.",
+    title: "Bring your data in",
+    body: "Import a bank or exchange statement, or point a service at Zyvark. Everything lands in one place.",
   },
   {
     n: "03",
     title: "Get value instantly",
-    body: "AI signals, secure trades, and clean books — working for you from the first session.",
+    body: "GST-ready books, market insight, and uptime alerts — working for you from the first session.",
   },
 ];
 

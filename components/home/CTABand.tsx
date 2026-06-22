@@ -17,8 +17,8 @@ export function CTABand() {
             Start free today. Upgrade when you&apos;re ready.
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-            Join thousands using Zyvark to trade smarter, settle safer, and keep
-            cleaner books. No credit card required.
+            Give your business cleaner books, simpler tax, and sharper insight —
+            all under one brand. No credit card required.
           </p>
           <div className="mx-auto mt-8 max-w-md">
             <NewsletterForm />

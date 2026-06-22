@@ -1,11 +1,12 @@
 import { Container } from "@/components/ui/Container";
 
-// TODO: replace these placeholder metrics with real, verifiable numbers.
+// Capability-based trust signals — verifiable, no invented metrics.
+// Swap in real usage numbers here once you have them.
 const stats = [
-  { value: "10k+", label: "Active users" },
-  { value: "$480M", label: "Volume secured" },
-  { value: "99.9%", label: "Uptime" },
-  { value: "4.9/5", label: "Avg. rating" },
+  { value: "4-in-1", label: "Products, one login" },
+  { value: "GST + VDA", label: "Compliance built in" },
+  { value: "Escrow", label: "Protected trades" },
+  { value: "Free", label: "To get started" },
 ];
 
 export function TrustBar() {

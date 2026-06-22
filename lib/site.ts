@@ -3,9 +3,9 @@ export const site = {
   shortName: "Zyvark",
   // Canonical production domain. Swap to a custom domain later if acquired.
   url: "https://zyvark-marketing.vercel.app",
-  tagline: "Institutional-grade fintech, built for everyone.",
+  tagline: "Every money job for your business, under one brand.",
   description:
-    "Zyvark Solutions builds AI-powered fintech products — analytics, escrow-protected exchange, and more — under one trusted brand. Start free.",
+    "Zyvark Solutions gives Indian SMBs and founders one trusted brand for books, GST, crypto tax, market analytics, and uptime monitoring. Start free.",
   // TODO: point this at your real signup/app URL.
   signupUrl: "/signup",
   signInUrl: "/signin",

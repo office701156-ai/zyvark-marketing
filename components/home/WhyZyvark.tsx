@@ -5,23 +5,23 @@ import { Reveal } from "@/components/Reveal";
 const values = [
   {
     icon: ShieldCheck,
-    title: "Security by default",
-    body: "Escrow protection, audit trails, and bank-grade encryption are built in — not bolted on.",
+    title: "Compliance built in",
+    body: "GST and VDA logic, audit trails, and filing-ready summaries come standard — not as an afterthought.",
   },
   {
     icon: BrainCircuit,
-    title: "AI that explains itself",
-    body: "Every signal and recommendation comes with the reasoning behind it, in plain language.",
+    title: "Clarity, not jargon",
+    body: "Every signal, number, and recommendation comes with the reasoning behind it, in plain language.",
   },
   {
     icon: Zap,
-    title: "Fast where it counts",
-    body: "Sub-second dashboards and real-time data so you act on the moment, not the memory of it.",
+    title: "Less tab-switching",
+    body: "Books, tax, analytics, and monitoring in one place, so your business stops living across ten tools.",
   },
   {
     icon: Sparkles,
-    title: "Designed to feel simple",
-    body: "Powerful under the hood, effortless on the surface. Your team is productive on day one.",
+    title: "Productive on day one",
+    body: "Powerful under the hood, effortless on the surface. Start free and get value in your first session.",
   },
 ];
 
@@ -30,8 +30,8 @@ export function WhyZyvark() {
     <Section className="bg-muted/20">
       <SectionHeading
         eyebrow="Why Zyvark"
-        title="Serious infrastructure, without the friction"
-        subtitle="The trust of an institution with the speed of a startup."
+        title="Built for founders, not finance departments"
+        subtitle="The capability of enterprise tooling, sized and priced for small businesses."
       />
       <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {values.map((v, i) => (
