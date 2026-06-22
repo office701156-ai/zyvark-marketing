@@ -6,6 +6,7 @@ import { WhyZyvark } from "@/components/home/WhyZyvark";
 import { HowItWorks } from "@/components/home/HowItWorks";
 import { FeatureRows } from "@/components/home/FeatureRows";
 import { Testimonials } from "@/components/home/Testimonials";
+import { LatestPosts } from "@/components/home/LatestPosts";
 import { CTABand } from "@/components/home/CTABand";
 
 export default function HomePage() {
@@ -19,6 +20,7 @@ export default function HomePage() {
       <HowItWorks />
       <FeatureRows />
       <Testimonials />
+      <LatestPosts />
       <CTABand />
     </>
   );
