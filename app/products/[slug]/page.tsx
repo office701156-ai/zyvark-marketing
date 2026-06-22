@@ -24,6 +24,7 @@ export function generateMetadata({
   return {
     title: product.name,
     description: product.description,
+    alternates: { canonical: `${site.url}/products/${product.slug}` },
   };
 }
 
@@ -37,8 +38,37 @@ export default function ProductPage({
 
   const Icon = product.icon;
 
+  const productJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: product.name,
+    applicationCategory: "FinanceApplication",
+    operatingSystem: "Web",
+    description: product.description,
+    url: `${site.url}/products/${product.slug}`,
+    brand: { "@type": "Brand", name: site.name },
+    offers: { "@type": "Offer", price: "0", priceCurrency: "INR" },
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Products", item: `${site.url}/products` },
+      { "@type": "ListItem", position: 2, name: product.name, item: `${site.url}/products/${product.slug}` },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <section className="relative overflow-hidden border-b border-border">
         <div
           aria-hidden="true"

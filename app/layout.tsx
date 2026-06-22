@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
+import Script from "next/script";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { site } from "@/lib/site";
@@ -25,14 +26,6 @@ export const metadata: Metadata = {
     template: `%s — ${site.name}`,
   },
   description: site.description,
-  keywords: [
-    "fintech",
-    "crypto analytics",
-    "P2P exchange",
-    "AI trading signals",
-    "escrow",
-    "Zyvark",
-  ],
   openGraph: {
     type: "website",
     url: site.url,
@@ -46,6 +39,10 @@ export const metadata: Metadata = {
     description: site.description,
   },
   alternates: { canonical: site.url },
+  // Set NEXT_PUBLIC_GSC_VERIFICATION in env to verify the domain in Search Console.
+  verification: process.env.NEXT_PUBLIC_GSC_VERIFICATION
+    ? { google: process.env.NEXT_PUBLIC_GSC_VERIFICATION }
+    : undefined,
 };
 
 const orgJsonLd = {
@@ -87,6 +84,17 @@ export default function RootLayout({
         <main id="main">{children}</main>
         <Footer />
         <Analytics />
+        {process.env.NEXT_PUBLIC_GA_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga4-init" strategy="afterInteractive">
+              {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${process.env.NEXT_PUBLIC_GA_ID}');`}
+            </Script>
+          </>
+        )}
       </body>
     </html>
   );

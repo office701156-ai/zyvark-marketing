@@ -1,9 +1,10 @@
 import type { MetadataRoute } from "next";
 import { products } from "@/lib/products";
+import { getAllPosts } from "@/lib/posts";
 import { site } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = ["", "/products", "/pricing", "/about", "/security", "/contact", "/signup", "/privacy", "/terms"];
+  const routes = ["", "/products", "/pricing", "/blog", "/about", "/security", "/contact", "/signup", "/privacy", "/terms"];
   const now = new Date();
 
   const staticRoutes = routes.map((path) => ({
@@ -20,5 +21,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticRoutes, ...productRoutes];
+  const postRoutes = getAllPosts().map((p) => ({
+    url: `${site.url}/blog/${p.slug}`,
+    lastModified: new Date(p.date),
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
+  return [...staticRoutes, ...productRoutes, ...postRoutes];
 }
