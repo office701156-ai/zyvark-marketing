@@ -1,0 +1,5 @@
+{
+  "redirects": [
+    { "source": "/(.*)", "destination": "https://www.zyvark.in/$1", "permanent": true }
+  ]
+}
